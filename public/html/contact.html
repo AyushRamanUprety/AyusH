@@ -1,0 +1,168 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Mountain Fusion Bistro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="contact-page">
+
+    <!-- Header -->
+<header class="header">
+    <nav class="navbar">
+        <!-- Logo -->
+        <div class="logo">
+            <a href="index.html">
+                <img src="../images/logo.png" alt="Mountain Fusion Bistro Logo" class="logo-img">
+            </a>
+        </div>
+        <!-- Navigation Links with Dropdown -->
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="menu.html?category=entrees">Menu</a>
+                <ul class="dropdown-content">
+                    <li><a href="menu.html?category=entrees">Entrées</a></li>
+                    <li><a href="menu.html?category=mains">Mains</a></li>
+                    <li><a href="menu.html?category=desserts">Desserts</a></li>
+                    <li><a href="menu.html?category=non-alcoholic">Non-Alcoholic Beverages</a></li>
+                    <li><a href="menu.html?category=alcoholic">Alcoholic Beverages</a></li>
+                    <li><a href="menu.html?category=kids">Kids Menu</a></li>
+                </ul>
+            </li> 
+            <li><a href="reservation.html">Reservation</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="dropdown">
+                <a href="#">Login</a>
+                <ul class="dropdown-content">
+                    <li><a href="employee-login.html">Employee Login</a></li>
+                    <li><a href="admin-login.html">Admin Login</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <h1>Contact Us</h1>
+</header>
+
+<!-- Contact Form Section -->
+<section class="contact-section">
+    <div class="container">
+        <h2>Message Us</h2>
+        <p class="contact-description">If you have any questions or need to get in touch, please use the form below.</p>
+
+        <!-- Contact Form Container -->
+        <div class="contact-form-container">
+            <form class="contact-form" action="/contact/submit" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Your Full Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Your Email Address">
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" required placeholder="Your Message"></textarea>
+                </div>
+                <div class="button-container">
+                <button type="submit">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <h2>Our Location</h2>
+        <div id="map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6218.95108560677!2d138.60156837555635!3d-34.92304277284155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ab0ced474e04f45%3A0x4bbcdba5a6fc11e6!2sIIBIT-%20Federation%20University%20Australia%2C%20Adelaide%20Campus!5e1!3m2!1sen!2sau!4v1726821446686!5m2!1sen!2sau" 
+            width="100%" 
+            height="400" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        </div>
+      </section>      
+
+    <!-- Modal Popup -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <p>Thank you for your message! We'll get back to you soon.</p>
+            <button class="close-btn" id="closeModal">Close</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Mountain Fusion Bistro Info -->
+        <div class="footer-section">
+            <h3>MOUNTAIN FUSION BISTRO</h3>
+            <p>We are available for function and event enquiries at all times.</p>
+            <div class="footer-social">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://goo.gl/maps/your-map-link" target="_blank"><i class="fas fa-map-marker-alt"></i></a> <!-- Google Maps icon -->
+            </div>
+        </div>
+
+        <!-- Menu Links -->
+        <div class="footer-section">
+            <h3>OUR MENUS</h3>
+            <ul class="footer-menu">
+                <li><a href="menu.html?category=entrees">Entrées</a></li>
+                <li><a href="menu.html?category=mains">Mains</a></li>
+                <li><a href="menu.html?category=desserts">Desserts</a></li>
+                <li><a href="menu.html?category=non-alcoholic">Non-Alcoholic Beverages</a></li>
+                <li><a href="menu.html?category=alcoholic">Alcoholic Beverages</a></li>
+                <li><a href="menu.html?category=kids">Kids Menu</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-section">
+            <h3>CONTACT US</h3>
+            <p>Phone: <a href="tel:+61234567890">+61 (234) 567-890</a></p>
+            <p>Email: <a href="mailto:info@mountainfusionbistro.com">info@mountainfusionbistro.com</a></p>
+            <p>Address: <a href="https://maps.google.com">123 Bistro Lane, Food City, FC 45678</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2024. All rights reserved by Mountain Fusion Bistro.</p>
+    </div>
+</footer>
+    
+
+    <script src="../js/map.js"></script> 
+
+    <!-- JavaScript to show the success modal -->
+    <script>
+      // Function to get query parameters from the URL
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+
+      // Check if the 'success' query parameter is present
+      if (getQueryParam('success') === 'true') {
+        const modal = document.getElementById('successModal');
+        modal.style.display = 'flex';  // Show the modal
+      }
+
+      // Close the modal when the 'Close' button is clicked
+      document.getElementById('closeModal').addEventListener('click', function() {
+        const modal = document.getElementById('successModal');
+        modal.style.display = 'none';  // Hide the modal
+      });
+    </script>
+</body>
+</html>

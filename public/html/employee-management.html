@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background: #fff;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        form {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        form input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Employee Management</h1>
+        <table id="employeeTable">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Employee rows will be dynamically added here -->
+            </tbody>
+        </table>
+        <form id="employeeForm">
+            <input type="email" id="email" placeholder="Email" required>
+            <button type="submit">Add Employee</button>
+        </form>
+    </div>
+
+    <script>
+        const apiUrl = "http://localhost:3000/admin/employees"; // Replace with your API URL
+
+        // Fetch and display employees
+        async function fetchEmployees() {
+            const response = await fetch(apiUrl);
+            const employees = await response.json();
+            const tableBody = document.querySelector("#employeeTable tbody");
+            tableBody.innerHTML = ""; // Clear previous rows
+
+            employees.forEach(employee => {
+                const row = document.createElement("tr");
+
+                row.innerHTML = `
+                <td>${employee.username}</td>
+                <td>
+                    <button style="background:red" onclick="deleteEmployee('${employee._id}')">Delete</button>
+                </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Delete an employee
+        async function deleteEmployee(id) {
+            try {
+                await fetch(`${apiUrl}/${id}`, { method: "DELETE" });
+                alert("Employee deleted successfully!");
+                fetchEmployees(); // Refresh the list
+            } catch (error) {
+                alert("Error deleting employee!");
+                console.error(error);
+            }
+        }
+
+        // Add a new employee
+        document.getElementById("employeeForm").addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById("email").value;
+
+            try {
+                await fetch(apiUrl, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ username:email }),
+                });
+
+                alert("Employee added successfully!");
+                fetchEmployees(); // Refresh the list
+                document.getElementById("employeeForm").reset(); // Clear the form
+            } catch (error) {
+                alert("Error adding employee!");
+                console.error(error);
+            }
+        });
+
+        // Initial fetch
+        fetchEmployees();
+    </script>
+</body>
+
+</html>

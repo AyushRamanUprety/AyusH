@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain Fusion Bistro - Reviews</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+
+</head>
+<body class="reviews-page">
+
+    <!-- Header -->
+<header class="header">
+    <nav class="navbar">
+        <!-- Logo -->
+        <div class="logo">
+            <a href="index.html">
+                <img src="../images/logo.png" alt="Mountain Fusion Bistro Logo" class="logo-img">
+            </a>
+        </div>
+        <!-- Navigation Links with Dropdown -->
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="menu.html?category=entrees">Menu</a>
+                <ul class="dropdown-content">
+                    <li><a href="menu.html?category=entrees">Entrées</a></li>
+                    <li><a href="menu.html?category=mains">Mains</a></li>
+                    <li><a href="menu.html?category=desserts">Desserts</a></li>
+                    <li><a href="menu.html?category=non-alcoholic">Non-Alcoholic Beverages</a></li>
+                    <li><a href="menu.html?category=alcoholic">Alcoholic Beverages</a></li>
+                    <li><a href="menu.html?category=kids">Kids Menu</a></li>
+                </ul>
+            </li> 
+            <li><a href="reservation.html">Reservation</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="dropdown">
+                <a href="#">Login</a>
+                <ul class="dropdown-content">
+                    <li><a href="employee-login.html">Employee Login</a></li>
+                    <li><a href="admin-login.html">Admin Login</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <h1>Customer Reviews</h1>
+</header>
+
+<!-- Reviews Section -->
+<section class="reviews-section">
+    <!-- Top Reviews Section -->
+    <div class="top-reviews-section">
+        <h3>What Our Customers Say</h3>
+        <div class="overall-rating">
+            <span id="average-rating" class="stars">★★★★★</span>
+            <p id="average-rating-text">4.5 out of 5 stars</p>
+        </div>
+    </div>
+    <div class="reviews-gallery-wrapper">
+        <div class="reviews-gallery">
+            <!-- Dynamic review cards will be appended here by JavaScript -->
+        </div>
+    </div>
+    <div class="dots-navigation" id="dotsNavigation">
+        <!-- Dots will be generated here dynamically -->
+    </div>
+    
+
+        <!-- Share Your Review Section -->
+        <div class="review-form-section">
+            <h3>Share Your Review</h3>
+
+            <!-- Form for submitting the review -->
+            <form class="review-form" action="/reviews/submit" method="POST" onsubmit="return validateForm()">
+                <div class="form-group">
+                    <label for="reviewer-name">Your Name</label>
+                    <input type="text" id="reviewer-name" name="name" required>
+                </div>
+
+                <!-- Star Rating Section -->
+                <div class="form-group">
+                    <label for="star-rating">Rating</label>
+                    <div class="star-rating">
+                        <input type="hidden" id="rating" name="rating" value="0">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                </div>
+
+                <!-- Review Message with 300 Character Limit -->
+                <div class="form-group">
+                    <label for="review-message">Your Review</label>
+                    <textarea id="review-message" name="message" rows="5" maxlength="300"></textarea>
+                    <p id="char-count">0/300 characters</p> <!-- Character count display -->
+                </div>
+
+                <div class="button-container">
+                    <button type="submit">Submit Review</button>
+                </div>
+            </form>
+        </div>
+
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Mountain Fusion Bistro Info -->
+        <div class="footer-section">
+            <h3>MOUNTAIN FUSION BISTRO</h3>
+            <p>We are available for function and event enquiries at all times.</p>
+            <div class="footer-social">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://goo.gl/maps/your-map-link" target="_blank"><i class="fas fa-map-marker-alt"></i></a>
+            </div>
+        </div>
+
+        <!-- Menu Links -->
+        <div class="footer-section">
+            <h3>OUR MENUS</h3>
+            <ul class="footer-menu">
+                <li><a href="menu.html?category=entrees">Entrées</a></li>
+                <li><a href="menu.html?category=mains">Mains</a></li>
+                <li><a href="menu.html?category=desserts">Desserts</a></li>
+                <li><a href="menu.html?category=non-alcoholic">Non-Alcoholic Beverages</a></li>
+                <li><a href="menu.html?category=alcoholic">Alcoholic Beverages</a></li>
+                <li><a href="menu.html?category=kids">Kids Menu</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-section">
+            <h3>CONTACT US</h3>
+            <p>Phone: <a href="tel:+61234567890">+61 (234) 567-890</a></p>
+            <p>Email: <a href="mailto:info@mountainfusionbistro.com">info@mountainfusionbistro.com</a></p>
+            <p>Address: <a href="https://maps.google.com">123 Bistro Lane, Food City, FC 45678</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2024. All rights reserved by Mountain Fusion Bistro.</p>
+    </div>
+</footer>
+
+<!-- JavaScript for handling star rating, character limit, and fetching/displaying reviews -->
+<script>
+    document.addEventListener("DOMContentLoaded", async function () {
+        const reviewsGallery = document.querySelector('.reviews-gallery');
+        const dotsNavigation = document.getElementById('dotsNavigation');
+        const reviewsPerPage = 3;
+        let currentPage = 0;
+        let totalPages = 0;
+    
+        let totalRating = 0;
+        let reviewCount = 0;
+    
+        async function fetchReviews() {
+            try {
+                const response = await fetch('/reviews/all');
+                const reviews = await response.json();
+    
+                if (!reviews || reviews.length === 0) {
+                    console.error('No reviews found');
+                    return;
+                }
+    
+                // Sort reviews by date, latest first
+                reviews.sort((a, b) => new Date(b.date) - new Date(a.date));
+    
+                // Clear previous reviews and dots
+                reviewsGallery.innerHTML = '';
+                dotsNavigation.innerHTML = '';
+    
+                reviews.forEach((review) => {
+                    createReviewCard(review);
+                });
+    
+                totalPages = Math.ceil(reviews.length / reviewsPerPage);
+                createDots(totalPages);
+                updateGallery(); // Ensure gallery is positioned correctly at the start
+    
+                // Calculate and display the overall average rating
+                if (reviewCount > 0) {
+                    const averageRating = (totalRating / reviewCount).toFixed(1);
+                    const averageStars = '★'.repeat(Math.floor(averageRating)) + '☆'.repeat(5 - Math.floor(averageRating));
+                    document.getElementById('average-rating').innerHTML = averageStars;
+                    document.getElementById('average-rating-text').innerHTML = `${averageRating} out of 5 stars`;
+                }
+            } catch (error) {
+                console.error('Error fetching reviews:', error);
+            }
+        }
+    
+        function createReviewCard(review) {
+            reviewCount++;
+            totalRating += review.rating;
+    
+            const reviewCard = document.createElement('div');
+            reviewCard.classList.add('review-card');
+    
+            const starRating = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+            const reviewDate = new Date(review.date).toLocaleDateString(); // Format date to a readable form
+    
+            let reviewContent = `
+                <h4 class="review-rating">${starRating}</h4>
+                <p class="review-text">"${review.message}"</p>
+                <p class="review-author">— ${review.name}</p>
+            `;
+    
+            reviewCard.innerHTML = reviewContent;
+            reviewsGallery.appendChild(reviewCard);
+        }
+    
+        function createDots(totalPages) {
+            for (let i = 0; i < totalPages; i++) {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active'); // Set the first dot as active
+                dot.addEventListener('click', () => {
+                    currentPage = i;
+                    updateGallery();
+                });
+                dotsNavigation.appendChild(dot);
+            }
+        }
+    
+        function updateGallery() {
+            const reviews = Array.from(reviewsGallery.children);
+            reviews.forEach((review, index) => {
+                if (index >= currentPage * reviewsPerPage && index < (currentPage + 1) * reviewsPerPage) {
+                    review.style.display = 'block';
+                } else {
+                    review.style.display = 'none';
+                }
+            });
+            updateDots();
+        }
+    
+        function updateDots() {
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                if (index === currentPage) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+    
+        const stars = document.querySelectorAll('.star');
+        const ratingInput = document.getElementById('rating');
+        const messageInput = document.getElementById('review-message');
+        const charCountDisplay = document.getElementById('char-count');
+    
+        stars.forEach(star => {
+            star.addEventListener('click', function () {
+                const ratingValue = this.getAttribute('data-value');
+                ratingInput.value = ratingValue;
+                updateStars(ratingValue);
+            });
+    
+            star.addEventListener('mouseover', function () {
+                updateStars(this.getAttribute('data-value'));
+            });
+    
+            star.addEventListener('mouseout', function () {
+                updateStars(ratingInput.value);
+            });
+        });
+    
+        function updateStars(rating) {
+            stars.forEach(s => {
+                if (s.getAttribute('data-value') <= rating) {
+                    s.classList.add('selected');
+                } else {
+                    s.classList.remove('selected');
+                }
+            });
+        }
+    
+        messageInput.addEventListener('input', function () {
+            charCountDisplay.textContent = `${this.value.length}/300 characters`;
+        });
+    
+        function validateForm() {
+            const ratingValue = ratingInput.value;
+            const message = messageInput.value.trim();
+    
+            if (ratingValue === "0") {
+                alert("Please select a star rating before submitting the review.");
+                return false;
+            }
+    
+            if (message.length > 300) {
+                alert("Your review message exceeds the 300-character limit.");
+                return false;
+            }
+    
+            return true;
+        }
+    
+        fetchReviews();
+    });
+</script>
+</body>
+</html>

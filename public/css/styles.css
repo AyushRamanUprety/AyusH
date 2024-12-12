@@ -1,0 +1,1105 @@
+/* General Styles - Applies to all pages */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #fff;  /* Very Dark Brown for text */
+    background-color: #e2ccac;
+}
+
+/* Global Heading Styling - Applies to all pages */
+h1, h2, h3, h4 {
+    text-align: center; /* Center the headings */
+    color: #fff; /* Dark Brown for headings */
+    font-family: 'Georgia', serif; /* Elegant font choice */
+    font-weight: bolder;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-bottom: 2rem; /* Spacing below the headings */
+    text-transform: uppercase; /* Optional: Makes text uppercase */
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+h5 {
+    font-size: 1rem;
+}
+
+/* Header */
+.header {
+    background: url('../images/bg3.png') no-repeat center center/cover;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center; 
+    position: relative;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Navbar styling */
+.navbar {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.logo img {
+    width: 120px; /* Adjust logo size as needed */
+    height: auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links li a {
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    font-family: 'Georgia', serif;
+    font-weight: bolder;
+}
+
+.nav-links li a:hover {
+    text-decoration: underline;
+}
+
+/* Dropdown Styling */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: url('../images/bg3.png') no-repeat center center/cover;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Add shadow */
+    z-index: 1;
+    list-style-type: none;
+    padding: 0;
+    border-radius: 5px;
+}
+
+.dropdown-content li {
+    display: block;
+    padding: 8px 16px;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+    
+}
+
+.dropdown-content li a {
+    color: #fff;
+    font-size: 1rem;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content li a:hover {
+    text-decoration: underline;
+}
+
+/* Show the dropdown on hover */
+.nav-links li:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Footer */
+.footer {
+    background: url('../images/bg3.png') no-repeat center center/cover;
+    color: #fff;
+    padding: 3rem 0;
+    text-align: left;
+    font-family: 'Georgia', serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding-bottom: 2rem;
+}
+
+.footer-section {
+    width: 30%;
+}
+
+.footer-section h3 {
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.footer-section p, .footer-section a {
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+.footer-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-menu li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.footer-menu li a:hover {
+    color: #0000FF;
+}
+
+.footer-social a {
+    color: #fff;
+    margin-right: 20px;
+    font-size: 2rem;
+    text-decoration: none;
+    background-color: #000000;
+}
+
+.footer-social a:hover {
+    color: #0000FF;
+}
+
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid #fff;
+    font-size: 0.9rem;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #fff;
+}
+
+/* Homepage */
+.homepage .hero {
+    background: url('../images/bgimage.png') no-repeat center center/cover;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.homepage .info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3rem;
+}
+.homepage .info-card {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    padding: 1.5rem;
+    border-radius: 10px;
+    height: 500px;
+}
+.homepage .info-card img {
+    flex: 1;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.homepage .info-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.homepage .info-content h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+.homepage .info-content p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+.homepage .info-content a {
+    background-color: #8aa2a9;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    max-width: fit-content;
+}
+.homepage .info-content a:hover {
+    background-color: #0056b3;
+}
+.homepage .reviews-section {
+    padding: 3rem;
+    text-align: center;
+}
+.homepage .reviews-section h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+.homepage .reviews-slider {
+    display: flex;
+    overflow: hidden;
+    gap: 1.5rem;
+    justify-content: center;
+}
+.homepage .review-card {
+    background: linear-gradient(135deg, #3A506B, #abdbe3);
+    padding: 20px;
+    margin-bottom: 3rem;
+    margin: 20px auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.homepage .review-card p {
+    font-style: italic;
+    color: #ffffff;
+}
+.homepage .review-card .author {
+    margin-top: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+.homepage .view-all-reviews {
+    background-color: #8aa2a9;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+.homepage .view-all-reviews:hover {
+    background-color: #0056b3;
+}
+
+/* Menu Page */
+.menu-page .menu-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.menu-page .menu-section {
+    margin-bottom: 3rem;
+    display: none;
+    width: 75%;
+}
+.menu-page .menu-section.active {
+    display: block;
+}
+.menu-page .menu-section h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+.menu-page .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+.menu-page .menu-item {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+    height: fit-content;
+    margin: 0 auto;
+}
+.menu-page .menu-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+.menu-page .menu-item h5 {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+.menu-page .menu-item .price {
+    font-size: 1.2rem;
+    color: #8aa2a9;
+    margin-bottom: 1rem;
+}
+.menu-page .menu-item label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+.menu-page .menu-item input[type="number"] {
+    width: 60px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+.menu-page .menu-item button {
+    background-color: #8aa2a9;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.menu-page .menu-item button:hover {
+    background-color: #0056b3;
+}
+.menu-page .cart-section {
+    width: 15%;
+    max-width: 250px;
+    height: fit-content;
+    padding: 10px;
+    background-color: #fff;
+    border-left: 1px solid #ccc;
+    position: sticky;
+    top: 60px;
+    overflow: hidden;
+    transition: width 0.3s ease, height 0.3s ease;
+    color: #333;
+    margin-bottom: 3rem;
+    margin-right: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.menu-page .cart-section h4 {
+    color: #333;
+}
+.menu-page .cart-section button {
+    background-color: #8aa2a9;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+.menu-page .cart-section button:hover {
+    background-color: #0056b3;
+}
+.menu-page .category-navigation {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.menu-page .category-navigation button {
+    background-color: #8aa2a9;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+}
+.menu-page .category-navigation button:hover {
+    background-color: #0056b3;
+}
+.menu-page .modal {
+    display: none; /* Hidden by default */
+    position: absolute;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    margin-top: 10%;
+}
+
+.menu-page .modal h4 {
+    color:#333
+}
+
+.menu-page .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 400px;
+    text-align: center;
+    color:#333
+}
+
+.menu-page .close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.menu-page .close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Contact Page */
+.contact-page .contact-section {
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.contact-page .contact-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: left;
+}
+
+.contact-page .contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-page .contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-page .contact-form label {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.contact-page .contact-form input,
+.contact-form select {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.2s ease;
+}
+
+.contact-page .contact-form input:focus,
+.contact-form select:focus {
+    border-color: #99540A; /* Dark brown for focus */
+    outline: none;
+}
+
+.contact-page .contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.2s ease;
+    resize: none; /* Prevents the textarea from being resizable */
+}
+
+.contact-page .hint {
+    display: none;
+    font-size: 0.8rem;
+    color: #ff0000; /* Red for validation hints */
+    margin-top: 0.25rem;
+}
+
+/* Button Styles */
+.contact-page .button-container {
+    margin-top: 2rem;
+    text-align: right;
+}
+
+.contact-page .button-container button {
+    width: 33.33%;
+    padding: 0.75rem;
+    background-color: #8aa2a9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-page .button-container button:hover {
+    background-color: #0056b3; /* Lighter brown on hover */
+}
+
+.contact-page .modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 9999; /* Ensure it stays on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Background overlay */
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-page .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 80%;
+}
+
+.contact-page .modal-content p {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: green;
+}
+
+.contact-page .close-btn {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.contact-page .close-btn:hover {
+    background-color: #555;
+}
+
+.contact-page .map-section {
+    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+/* Reservation Page */
+.reservation-page .reservation-section {
+    padding: 2rem 0;
+}
+
+.reservation-page .reservation-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-page .reservation-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.reservation-page .reservation-form label {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.reservation-page .reservation-form input,
+.reservation-form select {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.2s ease;
+}
+
+.reservation-page .reservation-form input:focus,
+.reservation-form select:focus {
+    border-color: #99540A; /* Dark brown for focus */
+    outline: none;
+}
+
+.reservation-page .hint {
+    display: none;
+    font-size: 0.8rem;
+    color: #ff0000; /* Red for validation hints */
+    margin-top: 0.25rem;
+}
+
+/* Button Styles */
+.reservation-page .button-container {
+    margin-top: 2rem;
+    text-align: right;
+}
+
+.reservation-page .button-container button {
+    width: 33.33%;
+    padding: 0.75rem;
+    background-color: #8aa2a9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reservation-page .button-container button:hover {
+    background-color: #0056b3; /* Lighter brown on hover */
+}
+
+/* Admin Login Page */
+.admin-login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.admin-login-page .login-container {
+    display: flex;
+    width: 80%;
+    max-width: 900px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.admin-login-page .login-info {
+    flex: 1;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.admin-login-page .login-info h1 {
+    color:#000000;
+    margin-bottom: 1rem;
+}
+.admin-login-page .login-info p {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.admin-login-page .login-info img {
+    width: 150px;
+    margin-bottom: 2rem;
+}
+.admin-login-page .login-form-section {
+    flex: 1;
+    padding: 2rem;
+    align-content: center;
+}
+.admin-login-page .login-form {
+    display: flex;
+    flex-direction: column;
+}
+.admin-login-page .form-group {
+    margin-bottom: 1.5rem;
+}
+.admin-login-page .form-group label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+.admin-login-page .form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+.admin-login-page .form-group input:focus {
+    border-color: #8aa2a9;
+    outline: none;
+}
+.admin-login-page .error-text {
+    color: red;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.admin-login-page .button-container {
+    text-align: center;
+}
+.admin-login-page .button-container button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #8aa2a9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.admin-login-page .button-container button:hover {
+    background-color: #0056b3;
+}
+.admin-login-page .form-footer {
+    text-align: center;
+    margin-top: 1rem;
+}
+.admin-login-page .form-footer a {
+    color: #8aa2a9;
+    text-decoration: none;
+}
+.admin-login-page .form-footer a:hover {
+    text-decoration: underline;
+}
+
+/* employee Login Page */
+.employee-login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.employee-login-page .login-container {
+    display: flex;
+    width: 80%;
+    max-width: 900px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.employee-login-page .login-info {
+    flex: 1;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.employee-login-page .login-info h1 {
+    color:#000000;
+    margin-bottom: 1rem;
+}
+.employee-login-page .login-info p {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.employee-login-page .login-info img {
+    width: 150px;
+    margin-bottom: 2rem;
+}
+.employee-login-page .login-form-section {
+    flex: 1;
+    padding: 2rem;
+    align-content: center;
+}
+.employee-login-page .login-form {
+    display: flex;
+    flex-direction: column;
+}
+.employee-login-page .form-group {
+    margin-bottom: 1.5rem;
+}
+.employee-login-page .form-group label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+.employee-login-page .form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+.employee-login-page .form-group input:focus {
+    border-color: #8aa2a9;
+    outline: none;
+}
+.employee-login-page .button-container {
+    text-align: center;
+}
+.employee-login-page .button-container button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #8aa2a9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.employee-login-page .button-container button:hover {
+    background-color: #0056b3;
+}
+.employee-login-page .form-footer {
+    text-align: center;
+    margin-top: 1rem;
+}
+.employee-login-page .form-footer a {
+    color: #8aa2a9;
+    text-decoration: none;
+}
+.employee-login-page .form-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Reviews Page */
+.reviews-page .reviews-section {
+    padding: 3rem;
+    border-radius: 10px;
+}
+
+.reviews-page .reviews-list-container {
+    position: relative;
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    max-width: 100%;
+    align-items: center;
+}
+
+/* Reviews Gallery Section */
+.reviews-page .reviews-gallery-wrapper {
+    overflow: hidden; /* Clip anything that overflows */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    padding: 0 40px;
+    width: 100%;
+}
+
+.reviews-page .reviews-gallery {
+    display: flex;
+    gap: 1rem;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.reviews-page .review-card {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3A506B, #abdbe3);
+    padding: 20px;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 20px auto;
+}
+
+.reviews-page .review-text {
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.reviews-page .review-author {
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.reviews-page .review-rating {
+    color: gold;
+    font-size: 1.5rem;
+    margin-top: 5rem;
+}
+
+.dots-navigation {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.dots-navigation .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dots-navigation .dot.active {
+    background-color: #333;
+}
+
+/* Star rating styling */
+.reviews-page .star {
+    font-size: 3rem;
+    cursor: pointer;
+    color: #ccc; /* Default star color */
+}
+
+.reviews-page .star.selected,
+.reviews-page .star:hover {
+    color: gold; /* Highlighted stars */
+}
+
+.reviews-page .overall-rating {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.reviews-page .overall-rating .stars {
+    font-size: 2rem;
+    color: gold;
+}
+
+.reviews-page #average-rating-text {
+    font-size: 1.2rem;
+    color: #381C18; /* Dark brown for text */
+}
+
+.reviews-page .review-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.reviews-page .review-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.reviews-page .review-form label {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.reviews-page .review-form input,
+.review-form select {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.2s ease;
+}
+
+.reviews-page .review-form input:focus,
+.review-form select:focus {
+    border-color: #99540A; /* Dark brown for focus */
+    outline: none;
+}
+
+.reviews-page .review-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.2s ease;
+    resize: none; /* Prevents the textarea from being resizable */
+}
+
+.reviews-page .hint {
+    display: none;
+    font-size: 0.8rem;
+    color: #ff0000; /* Red for validation hints */
+    margin-top: 0.25rem;
+}
+
+/* Button Styles */
+.reviews-page .button-container {
+    margin-top: 2rem;
+    text-align: right;
+}
+
+.reviews-page .button-container button {
+    width: 33.33%;
+    padding: 0.75rem;
+    background-color: #8aa2a9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reviews-page .button-container button:hover {
+    background-color: #0056b3; /* Lighter brown on hover */
+}
+
+/* Character count display */
+.reviews-page #char-count {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: left;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.error {
+    color: red;
+    text-align: center;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain Fusion Bistro - Admin Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="admin-login-page">
+
+    <!-- Admin Login Section -->
+        <div class="login-container">
+            <div class="login-info">
+                <h1>Admin Login</h1>
+                <p>Login to access and manage all activities and stay in control of everything.</p>
+                <img src="../images/logo.png" alt="Mountain Fusion Bistro Logo" style="width: 150px; margin-bottom: 2rem;">
+            </div>
+            <div class="login-form-section">
+                <form id="admin-login-form" class="login-form" action="/admin/login" method="POST">
+                    <div class="form-group">
+                        <label for="username">Email Address</label>
+                        <input type="email" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div id="loginError" class="error-text" style="display: none;">Invalid Username or Password</div> <!-- Error container -->
+                    <div class="button-container">
+                        <button type="submit">Login</button>
+                    </div>
+                    <div class="form-footer">
+                        <p><a href="forgot-password.html">Forgot Password?</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+        <script>
+            // Handle form submission
+            document.getElementById('admin-login-form').addEventListener('submit', async function (e) {
+                e.preventDefault(); // Prevent default form submission
+        
+                const formData = new FormData(this);
+                const data = {
+                    username: formData.get('username'),
+                    password: formData.get('password')
+                };
+        
+                const loginError = document.getElementById('loginError');
+                loginError.style.display = 'none';
+        
+                // Send login request to the server
+                try {
+                    const response = await fetch('http://localhost:3000/admin/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+        
+                    const result = await response.json();
+        
+                    // Log the response for debugging purposes
+                    console.log('Server Response:', result);
+        
+                    if (result.success) {
+                        // Redirect to dashboard if login is successful
+                        window.location.href = result.redirectUrl;
+                    } else {
+                        // Show the error message
+                        loginError.textContent = result.message || 'Invalid Username or Password';
+                        loginError.style.display = 'block';
+                    }
+                } catch (error) {
+                    console.error('Error occurred while trying to login:', error);
+                    loginError.textContent = 'An error occurred. Please try again.';
+                    loginError.style.display = 'block';
+                }
+            });
+        </script>
+        
+</body>
+</html>

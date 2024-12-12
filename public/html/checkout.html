@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Mountain Fusion Bistro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .checkout-page {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .checkout-page h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .checkout-page .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .checkout-page .total-price {
+            text-align: right;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+        }
+        .checkout-page button {
+            display: block;
+            margin: 2rem auto 0;
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .checkout-page button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body class="checkout-page">
+
+    <h1>Your Order Summary</h1>
+    <div id="cart-summary"></div>
+    <div id="total-price-summary" class="total-price"></div>
+    <button onclick="redirectToHome()">Return Home</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Retrieve cart data from localStorage
+            const cartItems = JSON.parse(localStorage.getItem('cartItems'));
+            const totalPrice = localStorage.getItem('totalPrice');
+            const cartSummary = document.getElementById('cart-summary');
+            const totalPriceSummary = document.getElementById('total-price-summary');
+
+            console.log('Cart Items:', cartItems);
+            console.log('Total Price:', totalPrice);
+
+            if (cartItems && cartItems.length > 0) {
+                cartItems.forEach(cartItem => {
+                    const cartItemDiv = document.createElement('div');
+                    cartItemDiv.classList.add('cart-item');
+                    cartItemDiv.innerHTML = `
+                        <span>${cartItem.item} x ${cartItem.quantity}</span>
+                        <span>$${cartItem.totalPrice.toFixed(2)}</span>
+                    `;
+                    cartSummary.appendChild(cartItemDiv);
+                });
+                totalPriceSummary.innerHTML = `Total: $${parseFloat(totalPrice).toFixed(2)}`;
+            } else {
+                cartSummary.innerHTML = '<p>No items in cart.</p>';
+            }
+        });
+
+        function redirectToHome() {
+            // Clear cart data from localStorage
+            localStorage.removeItem('cartItems');
+            localStorage.removeItem('totalPrice');
+
+            // Redirect to homepage
+            window.location.href = 'index.html';
+        }
+    </script>
+
+</body>
+</html>

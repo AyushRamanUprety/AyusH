@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain Fusion Bistro - Orders</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="orders-page">
+
+    <!-- Header -->
+<header class="header">
+    <nav class="navbar">
+        <!-- Logo -->
+        <div class="logo">
+            <a href="index.html">
+                <img src="../images/logo.png" alt="Mountain Fusion Bistro Logo" class="logo-img">
+            </a>
+        </div>
+        <!-- Navigation Links with Dropdown -->
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="menu.html">Menu</a>
+                <ul class="dropdown-content">
+                    <li><a href="menu.html#entrees">Entrées</a></li>
+                    <li><a href="menu.html#mains">Mains</a></li>
+                    <li><a href="menu.html#desserts">Desserts</a></li>
+                    <li><a href="menu.html#non-alcoholic">Non-Alcoholic Beverages</a></li>
+                    <li><a href="menu.html#alcoholic">Alcoholic Beverages</a></li>
+                    <li><a href="menu.html#kids">Kids Menu</a></li>
+                </ul>
+            </li>
+            <li><a href="reservation.html">Reservation</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="dropdown">
+                <a href="#">Login</a>
+                <ul class="dropdown-content">
+                    <li><a href="employee-login.html">Employee Login</a></li>
+                    <li><a href="admin-login.html">Admin Login</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <h1>Real-Time Orders</h1>
+</header>
+
+    <!-- Orders Section -->
+    
+    <section class="orders-section">
+        <div id="orders-container">
+            <!-- Orders will be dynamically injected here -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Mountain Fusion Bistro Info -->
+        <div class="footer-section">
+            <h3>MOUNTAIN FUSION BISTRO</h3>
+            <p>We are available for function and event enquiries at all times.</p>
+            <div class="footer-social">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://goo.gl/maps/your-map-link" target="_blank"><i class="fas fa-map-marker-alt"></i></a> <!-- Google Maps icon -->
+            </div>
+        </div>
+
+        <!-- Menu Links -->
+        <div class="footer-section">
+            <h3>OUR MENUS</h3>
+            <ul class="footer-menu">
+                <li><a href="menu.html?category=entrees">Entrées</a></li>
+                <li><a href="menu.html?category=mains">Mains</a></li>
+                <li><a href="menu.html?category=desserts">Desserts</a></li>
+                <li><a href="menu.html?category=non-alcoholic">Non-Alcoholic Beverages</a></li>
+                <li><a href="menu.html?category=alcoholic">Alcoholic Beverages</a></li>
+                <li><a href="menu.html?category=kids">Kids Menu</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-section">
+            <h3>CONTACT US</h3>
+            <p>Phone: <a href="tel:+61234567890">+61 (234) 567-890</a></p>
+            <p>Email: <a href="mailto:info@mountainfusionbistro.com">info@mountainfusionbistro.com</a></p>
+            <p>Address: <a href="https://maps.google.com">123 Bistro Lane, Food City, FC 45678</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2024. All rights reserved by Mountain Fusion Bistro.</p>
+    </div>
+</footer>
+    
+
+    <script>
+        // Function to fetch and display orders in real-time
+        async function fetchOrders() {
+            try {
+                const response = await fetch('/orders/all');
+                const orders = await response.json();
+                const ordersContainer = document.getElementById('orders-container');
+                ordersContainer.innerHTML = ''; // Clear existing orders
+
+                orders.forEach(order => {
+                    const orderElement = document.createElement('div');
+                    orderElement.classList.add('order');
+                    orderElement.innerHTML = `
+                        <p>Order ID: ${order._id}</p>
+                        <p>Total Price: $${order.totalPrice.toFixed(2)}</p>
+                        <p>Items: ${order.items.map(item => `${item.name} x ${item.quantity}`).join(', ')}</p>
+                        <hr>
+                    `;
+                    ordersContainer.appendChild(orderElement);
+                });
+            } catch (error) {
+                console.error('Error fetching orders:', error);
+            }
+        }
+
+        // Fetch orders when the page loads and refresh every 10 seconds
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchOrders();
+            setInterval(fetchOrders, 10000);  // Refresh orders every 10 seconds
+        });
+    </script>
+</body>
+</html>

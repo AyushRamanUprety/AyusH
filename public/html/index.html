@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain Fusion Bistro - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="homepage">
+<!-- Header -->
+<header class="header">
+    <nav class="navbar">
+        <!-- Logo -->
+        <div class="logo">
+            <a href="index.html">
+                <img src="../images/logo.png" alt="Mountain Fusion Bistro Logo" class="logo-img">
+            </a>
+        </div>
+        <!-- Navigation Links with Dropdown -->
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="menu.html?category=entrees">Menu</a>
+                <ul class="dropdown-content">
+                    <li><a href="menu.html?category=entrees">Entrées</a></li>
+                    <li><a href="menu.html?category=mains">Mains</a></li>
+                    <li><a href="menu.html?category=desserts">Desserts</a></li>
+                    <li><a href="menu.html?category=non-alcoholic">Non-Alcoholic Beverages</a></li>
+                    <li><a href="menu.html?category=alcoholic">Alcoholic Beverages</a></li>
+                    <li><a href="menu.html?category=kids">Kids Menu</a></li>
+                </ul>
+            </li>            
+            <li><a href="reservation.html">Reservation</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="dropdown">
+                <a href="#">Login</a>
+                <ul class="dropdown-content">
+                    <li><a href="employee-login.html">Employee Login</a></li>
+                    <li><a href="admin-login.html">Admin Login</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+    
+    <section class="hero">
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <h3>What Our Customers Say</h3>
+        <div class="reviews-slider" id="reviewsSlider">
+            <!-- Reviews will be dynamically inserted here -->
+        </div>
+        <a href="reviews.html" class="view-all-reviews">View All Reviews</a>
+    </section>
+
+    <!-- Informational Section -->
+    <section class="info-section">
+        <div class="info-card">
+            <img src="../images/bg1.png" alt="Private Functions & Events">
+            <div class="info-content">
+                <h3>Private Functions & Events</h3>
+                <p>Host your next special occasion at Mountain Fusion Bistro. We offer customizable food and drink packages to make your private functions truly unique and memorable. Our team will ensure every detail is perfect.</p>
+                <a href="reservation.html">Book Now</a>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <img src="../images/bg2.png" alt="Our Menu">
+            <div class="info-content">
+                <h3>Our Menu</h3>
+                <p>Explore our carefully curated menu featuring a variety of dishes to suit all tastes. From entrées to desserts, and a wide selection of beverages, our offerings are crafted with the finest ingredients to delight your palate.</p>
+                <a href="menu.html">View Full Menu</a>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <img src="../images/bg4.png" alt="Visit Us">
+            <div class="info-content">
+                <h3>Visit Us</h3>
+                <p>Come and experience the welcoming atmosphere of Mountain Fusion Bistro. Whether you're joining us for a casual meal or a special event, we are here to make your visit unforgettable. Get in touch or visit us today!</p>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Mountain Fusion Bistro Info -->
+        <div class="footer-section">
+            <h3>MOUNTAIN FUSION BISTRO</h3>
+            <p>We are available for function and event enquiries at all times.</p>
+            <div class="footer-social">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://goo.gl/maps/your-map-link" target="_blank"><i class="fas fa-map-marker-alt"></i></a> <!-- Google Maps icon -->
+            </div>
+        </div>
+
+        <!-- Menu Links -->
+        <div class="footer-section">
+            <h3>OUR MENUS</h3>
+            <ul class="footer-menu">
+                <li><a href="menu.html?category=entrees">Entrées</a></li>
+                <li><a href="menu.html?category=mains">Mains</a></li>
+                <li><a href="menu.html?category=desserts">Desserts</a></li>
+                <li><a href="menu.html?category=non-alcoholic">Non-Alcoholic Beverages</a></li>
+                <li><a href="menu.html?category=alcoholic">Alcoholic Beverages</a></li>
+                <li><a href="menu.html?category=kids">Kids Menu</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-section">
+            <h3>CONTACT US</h3>
+            <p>Phone: <a href="tel:+61234567890">+61 (234) 567-890</a></p>
+            <p>Email: <a href="mailto:info@mountainfusionbistro.com">info@mountainfusionbistro.com</a></p>
+            <p>Address: <a href="https://maps.google.com">123 Bistro Lane, Food City, FC 45678</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2024. All rights reserved by Mountain Fusion Bistro.</p>
+    </div>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        const reviewsSlider = document.getElementById('reviewsSlider');
+        
+        try {
+            // Fetch the top 3 reviews from the server
+            const response = await fetch('/reviews/top-reviews');
+            const reviews = await response.json();
+            
+            // Generate the HTML for each review and add it to the slider
+            reviews.forEach(review => {
+                const reviewCard = document.createElement('div');
+                reviewCard.classList.add('review-card');
+                reviewCard.innerHTML = `
+                    <p>"${review.message}"</p>
+                    <div class="author">- ${review.name}</div>
+                `;
+                reviewsSlider.appendChild(reviewCard);
+            });
+        } catch (error) {
+            console.error('Error fetching reviews:', error);
+        }
+    });
+</script>
+</body>
+</html>
